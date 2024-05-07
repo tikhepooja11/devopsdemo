@@ -1,0 +1,102 @@
+tikhepooja11@gitdemo:~/devopsdemo$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+tikhepooja11@gitdemo:~/devopsdemo$ ls -lrt
+total 16
+-rw-rw-r-- 1 tikhepooja11 tikhepooja11 61 May  7 09:34 iFile1.txt
+-rw-rw-r-- 1 tikhepooja11 tikhepooja11 50 May  7 09:36 iiFile2.txt
+-rw-rw-r-- 1 tikhepooja11 tikhepooja11 48 May  7 10:09 File4.txt
+-rw-rw-r-- 1 tikhepooja11 tikhepooja11 92 May  7 10:28 File3.txt
+tikhepooja11@gitdemo:~/devopsdemo$ 
+tikhepooja11@gitdemo:~/devopsdemo$ git log
+commit 80a6ba1ba1733f0e05bd27ba66ce9513b34c9046 (HEAD -> main, origin/main)
+Author: Pooja Tikhe <tikhepooja11@gmail.com>
+Date:   Tue May 7 10:28:42 2024 +0000
+
+    Updated the file 3 to check git diff command
+
+commit bf66bc1af224e7ffe1159fe52bf7ad5810bd0fdf (feature1)
+Author: Pooja Tikhe <tikhepooja11@gmail.com>
+Date:   Tue May 7 10:07:09 2024 +0000
+
+    Exercise 2 completed
+
+commit 488f081d80dc98db844c10c9f7214151e4fa1c6e
+Author: Pooja Tikhe <tikhepooja11@gmail.com>
+Date:   Tue May 7 09:38:53 2024 +0000
+
+    Exercise 1 completed
+tikhepooja11@gitdemo:~/devopsdemo$ cat File4.txt
+Welcome to file 4.This is the content of file 4
+tikhepooja11@gitdemo:~/devopsdemo$ vi File4.txt
+tikhepooja11@gitdemo:~/devopsdemo$ cat File4.txt
+Welcome to file 4.This is the content of file 4
+
+I am updating the content of this file, so this file is updated now.
+tikhepooja11@gitdemo:~/devopsdemo$ 
+tikhepooja11@gitdemo:~/devopsdemo$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   File4.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+tikhepooja11@gitdemo:~/devopsdemo$ git add .
+tikhepooja11@gitdemo:~/devopsdemo$ git commit -m "File 4 is updated to understand git diff command"
+[main 8e980e0] File 4 is updated to understand git diff command
+ 1 file changed, 2 insertions(+)
+tikhepooja11@gitdemo:~/devopsdemo$ 
+tikhepooja11@gitdemo:~/devopsdemo$ git log
+commit 8e980e0bc3fff39f86dea44e12d98ae8835f41fc (HEAD -> main)
+Author: Pooja Tikhe <tikhepooja11@gmail.com>
+Date:   Tue May 7 10:32:15 2024 +0000
+
+    File 4 is updated to understand git diff command
+
+commit 80a6ba1ba1733f0e05bd27ba66ce9513b34c9046 (origin/main)
+Author: Pooja Tikhe <tikhepooja11@gmail.com>
+Date:   Tue May 7 10:28:42 2024 +0000
+
+    Updated the file 3 to check git diff command
+
+commit bf66bc1af224e7ffe1159fe52bf7ad5810bd0fdf (feature1)
+Author: Pooja Tikhe <tikhepooja11@gmail.com>
+Date:   Tue May 7 10:07:09 2024 +0000
+
+    Exercise 2 completed
+
+commit 488f081d80dc98db844c10c9f7214151e4fa1c6e
+Author: Pooja Tikhe <tikhepooja11@gmail.com>
+Date:   Tue May 7 09:38:53 2024 +0000
+
+    Exercise 1 completed
+tikhepooja11@gitdemo:~/devopsdemo$ 
+tikhepooja11@gitdemo:~/devopsdemo$ git diff ^C
+tikhepooja11@gitdemo:~/devopsdemo$ 
+tikhepooja11@gitdemo:~/devopsdemo$ git diff ^C
+tikhepooja11@gitdemo:~/devopsdemo$ git diff 8e980e0bc3fff39f86dea44e12d98ae8835f41fc
+tikhepooja11@gitdemo:~/devopsdemo$ ^C
+tikhepooja11@gitdemo:~/devopsdemo$ git diff bf66bc1af224e7ffe1159fe52bf7ad5810bd0fdf
+diff --git a/File3.txt b/File3.txt
+index 8e5d336..adfd3ce 100644
+--- a/File3.txt
++++ b/File3.txt
+@@ -1 +1,3 @@
+ Welcome to file 3. This is content of file 3
++ 
++The new updated content adding to this file.
+diff --git a/File4.txt b/File4.txt
+index 70767c6..62f8354 100644
+--- a/File4.txt
++++ b/File4.txt
+@@ -1 +1,3 @@
+ Welcome to file 4.This is the content of file 4
++
++I am updating the content of this file, so this file is updated now.
+tikhepooja11@gitdemo:~/devopsdemo$ 
+tikhepooja11@gitdemo:~/devopsdemo$ This is how git diff command works.
